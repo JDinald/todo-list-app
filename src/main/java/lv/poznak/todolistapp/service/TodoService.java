@@ -8,18 +8,17 @@ import java.util.List;
 
 public interface TodoService {
 
-    ResponseEntity<List<Todo>> getTodoList(String title);
+  ResponseEntity<List<Todo>> getTodoList(String title);
 
-    ResponseEntity<Todo> getTodoById(long id);
+  ResponseEntity<Todo> getTodoById(long id);
 
-    ResponseEntity<Todo> addTodo(Todo todo);
+  ResponseEntity<Todo> addTodo(Todo todo);
 
-    ResponseEntity<Todo> updateTodo(long id,Todo todo);
+  ResponseEntity<Todo> updateTodo(long id, Todo todo);
 
-    ResponseEntity<HttpStatus> deleteTodo(long id);
+  ResponseEntity<HttpStatus> deleteTodo(long id);
 
-    ResponseEntity<HttpStatus> deleteAllTodo();
+  ResponseEntity<HttpStatus> deleteAllTodo();
 
-    ResponseEntity<List<Todo>> findByStatus();
-
+  ResponseEntity<List<Todo>> findByStatus();
 }

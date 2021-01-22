@@ -15,18 +15,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Todo {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @Column(name = "title")
-    private String title;
+  @Column(name = "title")
+  private String title;
 
-    @Column(name = "description")
-    private String description;
+  @Column(name = "description")
+  private String description;
 
-    @Column(name = "status")
-    private boolean status;
-
-
+  @Column(name = "status")
+  private boolean status;
 }

@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
-    List<Todo> findByStatus(boolean status);
+  List<Todo> findByStatus(boolean status);
 
-    List<Todo> findByTitleContaining(String title);
+  List<Todo> findByTitleContaining(String title);
 }
