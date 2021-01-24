@@ -58,7 +58,15 @@ class TodoControllerTest {
   }
 
   @Test
-  void createTodo() throws Exception {}
+  void createTodo() throws Exception {
+    Todo todo = new Todo(1, "Test 1", "Test info 1", false);
+
+    when(todoService.addTodo(todo)).thenReturn(new ResponseEntity<>(todo, HttpStatus.OK));
+
+    mockMvc
+            .perform(MockMvcRequestBuilders.post("/api/todo").contentType(MediaType.APPLICATION_JSON))
+            .andDo(print());
+  }
 
   @Test
   void updateTodoById() throws Exception {}
