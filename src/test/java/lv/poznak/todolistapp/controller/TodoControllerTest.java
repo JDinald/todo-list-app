@@ -45,7 +45,7 @@ class TodoControllerTest {
     when(todoService.getTodoList(any())).thenReturn(new ResponseEntity<>(todoList, HttpStatus.OK));
 
     mockMvc
-        .perform(MockMvcRequestBuilders.get("/api/todos").contentType(MediaType.APPLICATION_JSON))
+        .perform(MockMvcRequestBuilders.get("/todos").contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$", hasSize(2)))
         .andDo(print());
   }
@@ -58,7 +58,7 @@ class TodoControllerTest {
     when(todoService.getTodoById(1)).thenReturn(new ResponseEntity<>(todo, HttpStatus.OK));
 
     mockMvc
-        .perform(MockMvcRequestBuilders.get("/api/todo/1").contentType(MediaType.APPLICATION_JSON))
+        .perform(MockMvcRequestBuilders.get("/todo/1").contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.id").value(1))
         .andExpect(jsonPath("$.description").value("Found by id"))
         .andDo(print());
@@ -74,7 +74,7 @@ class TodoControllerTest {
 
     ResultActions result =
         mockMvc.perform(
-            post("/api/todo").contentType(MediaType.APPLICATION_JSON).content(todoJSON));
+            post("/todo").contentType(MediaType.APPLICATION_JSON).content(todoJSON));
 
     result
         .andExpect(status().isCreated())
@@ -92,7 +92,7 @@ class TodoControllerTest {
 
     ResultActions result =
         mockMvc.perform(
-            put("/api/todo/1").contentType(MediaType.APPLICATION_JSON).content(todoJSON));
+            put("/todo/1").contentType(MediaType.APPLICATION_JSON).content(todoJSON));
 
     result
         .andExpect(status().isCreated())
@@ -105,7 +105,7 @@ class TodoControllerTest {
     when(todoService.deleteTodo(anyLong())).thenReturn(new ResponseEntity<>(HttpStatus.NO_CONTENT));
 
     mockMvc.perform(
-        MockMvcRequestBuilders.delete("/api/todo/1").contentType(MediaType.APPLICATION_JSON));
+        MockMvcRequestBuilders.delete("/todo/1").contentType(MediaType.APPLICATION_JSON));
   }
 
   @Test
@@ -113,7 +113,7 @@ class TodoControllerTest {
     when(todoService.deleteAllTodo()).thenReturn(new ResponseEntity<>(HttpStatus.NO_CONTENT));
 
     mockMvc.perform(
-        MockMvcRequestBuilders.delete("/api/todos").contentType(MediaType.APPLICATION_JSON));
+        MockMvcRequestBuilders.delete("/todos").contentType(MediaType.APPLICATION_JSON));
   }
 
   @Test
@@ -125,7 +125,7 @@ class TodoControllerTest {
 
     mockMvc
         .perform(
-            MockMvcRequestBuilders.get("/api/todo/status").contentType(MediaType.APPLICATION_JSON))
+            MockMvcRequestBuilders.get("/todo/status").contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$", hasSize(1)))
         .andExpect(jsonPath("$[0].description").value("Found by status"))
         .andExpect(jsonPath("$[0].status").value(true))
