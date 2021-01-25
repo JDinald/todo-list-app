@@ -51,7 +51,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>todo-list-app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
