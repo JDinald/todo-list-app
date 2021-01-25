@@ -17,7 +17,7 @@ public class TodoController {
 
   private final TodoService todoService;
 
-  @GetMapping("/api/test")
+  @GetMapping("/test")
   public String hello(){
     return "Test connetcion";
   }
