@@ -17,6 +17,11 @@ public class TodoController {
 
   private final TodoService todoService;
 
+  @GetMapping("/api/welcome")
+  public String hello(){
+    return "Hi";
+  }
+
   @GetMapping("/todos")
   public ResponseEntity<List<Todo>> getAllTodo(@RequestParam(required = false) String title) {
     return todoService.getTodoList(title);
